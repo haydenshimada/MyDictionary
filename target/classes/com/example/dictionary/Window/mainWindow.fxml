@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="601.0" prefWidth="823.0" style="-fx-border-color: #3986EA#33ccff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HelloController">
+   <top>
+      <VBox prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <HBox prefHeight="34.0" prefWidth="819.0">
+            <children>
+               <Pane prefHeight="88.0" prefWidth="275.0" />
+               <ImageView fitHeight="88.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Image/dictionary.png" />
+                  </image>
+               </ImageView>
+               <Pane />
+            </children>
+         </HBox>
+         <HBox prefHeight="47.0" prefWidth="600.0">
+            <VBox.margin>
+               <Insets top="8.0" />
+            </VBox.margin>
+            <TextField fx:id="inputWord" onKeyReleased="#getWordList" prefHeight="38.0" prefWidth="279.0" promptText="Nhập từ cần tra">
+               <HBox.margin>
+                  <Insets left="8.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="40.0" prefWidth="30.0" stylesheets="@../Style/ButtonStyle.css">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" top="8.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../Image/Search.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane prefHeight="42.0" prefWidth="128.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="apiButton" mnemonicParsing="false" onAction="#APIButtonClicked" prefHeight="34.0" prefWidth="150.0" stylesheets="@../Style/ButtonStyle.css" text="Dịch văn bản">
+               <HBox.margin>
+                  <Insets right="8.0" top="8.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Pane prefHeight="42.0" prefWidth="186.0" HBox.hgrow="ALWAYS" />
+         </HBox>
+      </VBox>
+   </top>
+   <right>
+      <TabPane prefHeight="464.0" prefWidth="536.0" stylesheets="@../Style/TabStyle.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab closable="false" style="-fx-background-color: transparent;">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="488.0">
+                     <children>
+                        <TextArea fx:id="meaningArea" editable="false" layoutX="144.0" layoutY="102.0" prefHeight="390.0" prefWidth="536.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Button fx:id="deleteButton" layoutX="478.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <Image url="@../Image/delete.png" />
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="speakButton" layoutX="440.0" layoutY="14.0" mnemonicParsing="false" onAction="#speak" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css">
+                           <graphic>
+                              <ImageView fitHeight="73.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/voice.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="editButton" layoutX="486.0" layoutY="14.0" mnemonicParsing="false" onAction="#editButtonClicked" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css">
+                           <graphic>
+                              <ImageView fitHeight="19.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Image/edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets bottom="8.0" right="8.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </right>
+   <left>
+      <VBox prefHeight="459.0" prefWidth="263.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="96.0" prefWidth="263.0" />
+            <ListView fx:id="listView" onKeyReleased="#getWordList" onMouseClicked="#getMeaning" prefHeight="456.0" prefWidth="263.0" />
+            <HBox prefHeight="100.0" prefWidth="263.0">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="34.0" prefWidth="165.0" stylesheets="@../Style/ButtonStyle.css" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@../Image/add.png" />
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+</BorderPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="325.0" style="-fx-border-color: #91dcff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HelloController">
+   <ImageView fitHeight="36.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Image/dictionary.png" />
+      </image>
+      <VBox.margin>
+         <Insets top="2.0" />
+      </VBox.margin>
+   </ImageView>
+   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="346.0" text="Bạn có chắc là muốn xóa từ này?">
+      <font>
+         <Font size="18.0" />
+      </font>
+      <VBox.margin>
+         <Insets top="3.0" />
+      </VBox.margin>
+   </Label>
+   <HBox prefHeight="45.0" prefWidth="291.0">
+      <VBox.margin>
+         <Insets bottom="8.0" top="5.0" />
+      </VBox.margin>
+      <Pane prefHeight="34.0" prefWidth="160.0" HBox.hgrow="ALWAYS" />
+      <Button mnemonicParsing="false" onAction="#saveDelete" prefHeight="26.0" prefWidth="126.0" stylesheets="@../Style/ButtonStyle.css" text="Xóa">
+         <HBox.margin>
+            <Insets bottom="8.0" />
+         </HBox.margin>
+      </Button>
+      <Pane prefHeight="46.0" prefWidth="99.0" />
+      <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="26.0" prefWidth="126.0" stylesheets="@../Style/ButtonStyle.css" text="Hủy">
+         <HBox.margin>
+            <Insets bottom="8.0" />
+         </HBox.margin>
+      </Button>
+      <Pane prefHeight="46.0" prefWidth="159.0" HBox.hgrow="ALWAYS" />
+   </HBox>
+</VBox>
