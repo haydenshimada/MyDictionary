@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="300.0" style="-fx-border-color: #91dcff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HelloController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="300.0" style="-fx-border-color: #91dcff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.EditController">
    <ImageView fitHeight="31.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Image/dictionary.png" />
       </image>
    </ImageView>
-    <TextArea fx:id="editField" prefHeight="249.0" prefWidth="286.0">
+    <TextArea fx:id="editArea" prefHeight="249.0" prefWidth="286.0" wrapText="true">
         <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
         </VBox.margin>
@@ -35,7 +35,7 @@
             </HBox.margin>
         </Button>
         <Pane prefHeight="38.0" prefWidth="22.0" />
-        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="26.0" prefWidth="54.0" stylesheets="@../Style/ButtonStyle.css" text="Hủy">
+        <Button fx:id="editButton" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="26.0" prefWidth="54.0" stylesheets="@../Style/ButtonStyle.css" text="Hủy">
             <HBox.margin>
                 <Insets bottom="5.0" />
             </HBox.margin>

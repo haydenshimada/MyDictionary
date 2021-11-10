@@ -110,18 +110,12 @@ public class HelloController implements Initializable {
     private Button editButton = new Button();
 
     @FXML
-    private TextArea editField = new TextArea();
-
-    @FXML
-    public void editButtonClicked() throws IOException {
+    public void editButtonClicked() throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/editWindow.fxml"));
         scene = new Scene(fxmlLoader.load());
 
         window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-
-        editField.clear();
-        editField.appendText(meaningArea.getText());
 
         window.setTitle("Sửa từ");
         window.setScene(scene);
@@ -129,13 +123,8 @@ public class HelloController implements Initializable {
         window.show();
     }
 
-    @FXML
-    public void saveEdit() throws SQLException {
-        sql.updateWordDetail(word, editField.getText());
-        cancelButtonClicked();
-    }
-
-    private String word;
+    protected static String word = "";
+    protected static String meaning = "";
 
     @FXML
     private Button apiButton;
@@ -181,13 +170,14 @@ public class HelloController implements Initializable {
     private TextArea meaningArea = new TextArea();
 
     @FXML
-    public void getMeaning() throws SQLException, ClassNotFoundException {
+    public void getMeaning() throws SQLException {
         meaningArea.clear();
 
         word = listView.getSelectionModel().getSelectedItem();
 
         if (word != null) {
-            meaningArea.appendText(sql.searchWord(word));
+            meaningArea.setText(sql.searchWord(word));
+            meaning = meaningArea.getText();
 
             deleteButton.setVisible(true);
             speakButton.setVisible(true);
@@ -206,7 +196,7 @@ public class HelloController implements Initializable {
             word = wordList.get(0);
 
             if (word != null) {
-                meaningArea.appendText(sql.searchWord(word));
+                meaningArea.setText(sql.searchWord(word));
 
                 deleteButton.setVisible(true);
                 speakButton.setVisible(true);

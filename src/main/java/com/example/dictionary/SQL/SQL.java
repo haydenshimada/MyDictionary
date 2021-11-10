@@ -58,7 +58,7 @@ public class SQL {
 
     /** trả về table được gợi ý khi nhập chuỗi. */
     public static ResultSet searchSuggest(String suggest) throws SQLException {
-        final String selectData = "select * from tbl_edict where word like " + "'" + suggest + "%'";
+        final String selectData = "select * from tbl_edict where word like " + "'" + suggest + "%'" + "order by word asc ";
         pst = connect.prepareStatement(selectData);
         // pst.setString(1, suggest);
         ResultSet rs = pst.executeQuery();
