@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class EditController implements Initializable {
-    private SQL sql = new SQL();
+    private final SQL sql = new SQL();
 
     public EditController() throws SQLException, ClassNotFoundException {
     }

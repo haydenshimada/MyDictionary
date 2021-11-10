@@ -23,7 +23,7 @@ public class HelloController implements Initializable {
     private Stage window;
     private Scene scene;
 
-    private SQL sql = new SQL();
+    private final SQL sql = new SQL();
 
     @FXML
     private ListView<String> listView = new ListView<>();
@@ -44,7 +44,7 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void getWordList() throws SQLException, ClassNotFoundException {
+    public void getWordList() throws SQLException {
         wordList.clear();
         listView.getItems().clear();
 
@@ -110,7 +110,7 @@ public class HelloController implements Initializable {
     private Button editButton = new Button();
 
     @FXML
-    public void editButtonClicked() throws IOException, SQLException {
+    public void editButtonClicked() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/editWindow.fxml"));
         scene = new Scene(fxmlLoader.load());
 
@@ -186,10 +186,7 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button searchButton = new Button();
-
-    @FXML
-    public void searchButtonClicked() throws SQLException, ClassNotFoundException {
+    public void searchButtonClicked() throws SQLException {
         meaningArea.clear();
 
         if (!wordList.isEmpty()) {
