@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static com.example.dictionary.API.GoogleAPI.translateFromEnToVi;
+import static com.example.dictionary.API.GoogleAPI.translateFromViToEn;
+import static com.example.dictionary.API.HistoryAPI.insertWordToHistory;
 
 public class HelloController implements Initializable {
     private Stage window;
@@ -33,15 +35,19 @@ public class HelloController implements Initializable {
     @FXML
     private TextField inputWord = new TextField();
 
-    public HelloController() throws SQLException, ClassNotFoundException {
+    public HelloController() throws SQLException {
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         deleteButton.setVisible(false);
         speakButton.setVisible(false);
         editButton.setVisible(false);
     }
+
+    protected static String word = "";
+    protected static String meaning = "";
 
     @FXML
     public void getWordList() throws SQLException {
@@ -51,6 +57,44 @@ public class HelloController implements Initializable {
         String input = inputWord.getText();
         wordList = sql.pushToSuggestList(input);
         listView.getItems().addAll(wordList);
+    }
+
+    @FXML
+    private TextArea meaningArea = new TextArea();
+
+    @FXML
+    public void getMeaning() throws SQLException {
+        meaningArea.clear();
+
+        word = listView.getSelectionModel().getSelectedItem();
+
+        if (word != null) {
+            meaningArea.setText(sql.searchWord(word));
+            meaning = meaningArea.getText();
+
+            deleteButton.setVisible(true);
+            speakButton.setVisible(true);
+            editButton.setVisible(true);
+
+            insertWordToHistory(word);
+        }
+    }
+
+    @FXML
+    public void searchButtonClicked() throws SQLException {
+        meaningArea.clear();
+
+        if (!wordList.isEmpty()) {
+            word = wordList.get(0);
+
+            if (word != null) {
+                meaningArea.setText(sql.searchWord(word));
+
+                deleteButton.setVisible(true);
+                speakButton.setVisible(true);
+                editButton.setVisible(true);
+            }
+        }
     }
 
     @FXML
@@ -65,18 +109,6 @@ public class HelloController implements Initializable {
         window.setScene(scene);
         window.setResizable(false);
         window.show();
-    }
-
-    @FXML
-    private TextArea insertMeaning;
-
-    @FXML
-    private TextField insertWord;
-
-    @FXML
-    public void saveAdd() throws SQLException {
-        sql.insertNewWord(insertWord.getText(), insertMeaning.getText());
-        cancelButtonClicked();
     }
 
     @FXML
@@ -97,16 +129,6 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    public void saveDelete() throws SQLException {
-        sql.deleteWord(word);
-
-        inputWord.clear();
-        meaningArea.clear();
-
-        cancelButtonClicked();
-    }
-
-    @FXML
     private Button editButton = new Button();
 
     @FXML
@@ -117,14 +139,23 @@ public class HelloController implements Initializable {
         window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
 
+
         window.setTitle("Sửa từ");
         window.setScene(scene);
         window.setResizable(false);
         window.show();
     }
 
-    protected static String word = "";
-    protected static String meaning = "";
+    @FXML
+    private Button historyButton = new Button();
+
+    @FXML
+    public void HistoryButtonClicked() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/historyWindow.fxml"));
+
+        window = (Stage) historyButton.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader.load()));
+    }
 
     @FXML
     private Button apiButton;
@@ -149,57 +180,11 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button cancelButton = new Button();
-
-    @FXML
-    public void cancelButtonClicked() {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
     private Button speakButton = new Button();
 
     @FXML
     public void speak() {
-        //String word = listView.getSelectionModel().getSelectedItem();
         TextToSpeech.Speak(word);
-    }
-
-    @FXML
-    private TextArea meaningArea = new TextArea();
-
-    @FXML
-    public void getMeaning() throws SQLException {
-        meaningArea.clear();
-
-        word = listView.getSelectionModel().getSelectedItem();
-
-        if (word != null) {
-            meaningArea.setText(sql.searchWord(word));
-            meaning = meaningArea.getText();
-
-            deleteButton.setVisible(true);
-            speakButton.setVisible(true);
-            editButton.setVisible(true);
-        }
-    }
-
-    @FXML
-    public void searchButtonClicked() throws SQLException {
-        meaningArea.clear();
-
-        if (!wordList.isEmpty()) {
-            word = wordList.get(0);
-
-            if (word != null) {
-                meaningArea.setText(sql.searchWord(word));
-
-                deleteButton.setVisible(true);
-                speakButton.setVisible(true);
-                editButton.setVisible(true);
-            }
-        }
     }
 
     @FXML
@@ -216,6 +201,7 @@ public class HelloController implements Initializable {
     @FXML
     public void VnEnButtonClick() throws IOException {
         apiOutput.clear();
-        apiOutput.appendText(translateFromEnToVi(apiInput.getText()));
+        apiOutput.appendText(translateFromViToEn(apiInput.getText()));
     }
+
 }

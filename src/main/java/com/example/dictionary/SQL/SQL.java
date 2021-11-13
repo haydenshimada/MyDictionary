@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SQL {
-    private Connection connect = null;
+    private final Connection connect;
     private PreparedStatement pst = null;
-    private List<Word> dictionary = new ArrayList<>();
-    private List<String> suggestWord = new ArrayList<>();
+    private final List<String> suggestWord = new ArrayList<>();
 
-    public SQL() throws SQLException, ClassNotFoundException {
+    public SQL() throws SQLException {
         connect = MySQLConnUtils.getMySQlConnection();
     }
 
@@ -32,23 +31,6 @@ public class SQL {
         res = res.replace("<br />", "\n");
         res = res.replace("=", "\t");
         return res;
-    }
-
-    /** trả về cả table. */
-    public ResultSet selectAllData() throws SQLException {
-        final String selectAllData = "select * from tbl_edict";
-        pst = connect.prepareStatement(selectAllData);
-        ResultSet rs = pst.executeQuery();
-        return rs;
-    }
-
-    /** đẩy table vào list dictionary và trả về list. */
-    public List<Word> pushAllToList() throws SQLException {
-        ResultSet rs = selectAllData();
-        while (rs.next()) {
-            dictionary.add(new Word(rs.getString(2), fixInput(rs.getString(3))));
-        }
-        return dictionary;
     }
 
     /** trả về table được gợi ý khi nhập chuỗi. */

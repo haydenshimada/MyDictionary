@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class GoogleAPI {
   // How To Use
@@ -29,7 +30,7 @@ public class GoogleAPI {
     String urlStr =
         "https://script.google.com/macros/s/AKfycbw7Ia3oyzEeWRcvSAwC6BN-f8CcqQxduxBeIGSq_IPviuaq2LvrDbJaYrpOFP6x1_dL/exec"
             + "?q="
-            + URLEncoder.encode(text, "UTF-8")
+            + URLEncoder.encode(text, StandardCharsets.UTF_8)
             + "&target="
             + langTo
             + "&source="

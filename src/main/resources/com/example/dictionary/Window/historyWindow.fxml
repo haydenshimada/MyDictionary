@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="601.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HistoryController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="84.0" prefWidth="823.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="backToMainButton" alignment="CENTER" mnemonicParsing="false" onAction="#getBackToMain" stylesheets="@../Style/ButtonStyle.css" text="Quay lại">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Pane prefHeight="84.0" prefWidth="232.0" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/dictionary.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <ListView fx:id="historyList" onMouseClicked="#getMeaning" prefHeight="413.0" prefWidth="295.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="8.0" top="5.0" />
+               </BorderPane.margin>
+            </ListView>
+         </left>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="94.0" prefWidth="823.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="134.0" stylesheets="@../Style/ButtonStyle.css" text="Xóa lịch sử">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <right>
+            <AnchorPane prefHeight="413.0" prefWidth="504.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="8.0" top="5.0" />
+               </BorderPane.margin>
+               <children>
+                  <TextArea fx:id="meaning" layoutX="152.0" layoutY="58.0" prefHeight="412.8" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Button fx:id="delete1WordButton" layoutX="448.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

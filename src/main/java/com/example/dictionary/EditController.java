@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class EditController implements Initializable {
     private final SQL sql = new SQL();
 
-    public EditController() throws SQLException, ClassNotFoundException {
+    public EditController() throws SQLException {
     }
 
     @FXML
@@ -28,7 +28,11 @@ public class EditController implements Initializable {
     @FXML
     public void saveEdit() throws SQLException {
         sql.updateWordDetail(HelloController.word, editArea.getText());
-        cancelButtonClicked();
+        HelloController.meaning = editArea.getText();
+
+        // close editWindow
+        Stage stage = (Stage) editButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
