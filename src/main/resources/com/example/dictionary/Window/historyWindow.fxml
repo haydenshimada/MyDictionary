@@ -42,7 +42,7 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="94.0" prefWidth="823.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="134.0" stylesheets="@../Style/ButtonStyle.css" text="Xóa lịch sử">
+                  <Button mnemonicParsing="false" onAction="#clearHistory" prefHeight="58.0" prefWidth="134.0" stylesheets="@../Style/ButtonStyle.css" text="Xóa lịch sử">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -57,9 +57,18 @@
                </BorderPane.margin>
                <children>
                   <TextArea fx:id="meaning" layoutX="152.0" layoutY="58.0" prefHeight="412.8" prefWidth="504.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Button fx:id="delete1WordButton" layoutX="448.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css">
+                  <Button fx:id="speakButton" layoutX="453.0" layoutY="14.0" mnemonicParsing="false" onAction="#speak" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css">
                      <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="73.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/voice.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete1WordButton" layoutX="454.0" layoutY="359.0" mnemonicParsing="false" onAction="#delete1Word" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Image/delete.png" />
                            </image>

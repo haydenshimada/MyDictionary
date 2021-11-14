@@ -35,6 +35,33 @@ public class HelloController implements Initializable {
     @FXML
     private TextField inputWord = new TextField();
 
+    protected static String word = "";
+    protected static String meaning = "";
+
+    @FXML
+    private TextArea meaningArea = new TextArea();
+
+    @FXML
+    private Button deleteButton = new Button();
+    @FXML
+    private Button editButton = new Button();
+    @FXML
+    private Button historyButton = new Button();
+    @FXML
+    private Button apiButton = new Button();
+
+    @FXML
+    private Button backToMainButton = new Button();
+
+    @FXML
+    private Button speakButton = new Button();
+
+
+    @FXML
+    private TextArea apiInput = new TextArea();
+    @FXML
+    private TextArea apiOutput = new TextArea();
+
     public HelloController() throws SQLException {
     }
 
@@ -46,9 +73,6 @@ public class HelloController implements Initializable {
         editButton.setVisible(false);
     }
 
-    protected static String word = "";
-    protected static String meaning = "";
-
     @FXML
     public void getWordList() throws SQLException {
         wordList.clear();
@@ -58,9 +82,6 @@ public class HelloController implements Initializable {
         wordList = sql.pushToSuggestList(input);
         listView.getItems().addAll(wordList);
     }
-
-    @FXML
-    private TextArea meaningArea = new TextArea();
 
     @FXML
     public void getMeaning() throws SQLException {
@@ -112,9 +133,6 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button deleteButton = new Button();
-
-    @FXML
     public void deleteButtonClicked() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/deleteWindow.fxml"));
         scene = new Scene(fxmlLoader.load());
@@ -127,9 +145,6 @@ public class HelloController implements Initializable {
         window.setResizable(false);
         window.show();
     }
-
-    @FXML
-    private Button editButton = new Button();
 
     @FXML
     public void editButtonClicked() throws IOException {
@@ -147,18 +162,12 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button historyButton = new Button();
-
-    @FXML
     public void HistoryButtonClicked() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/historyWindow.fxml"));
 
         window = (Stage) historyButton.getScene().getWindow();
         window.setScene(new Scene(fxmlLoader.load()));
     }
-
-    @FXML
-    private Button apiButton;
 
     @FXML
     public void APIButtonClicked() throws IOException {
@@ -169,9 +178,6 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button backToMainButton;
-
-    @FXML
     private void getBackToMain() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Window/mainWindow.fxml"));
 
@@ -180,17 +186,9 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    private Button speakButton = new Button();
-
-    @FXML
     public void speak() {
         TextToSpeech.Speak(word);
     }
-
-    @FXML
-    private TextArea apiInput = new TextArea();
-    @FXML
-    private TextArea apiOutput = new TextArea();
 
     @FXML
     public void EnVnButtonClick() throws IOException {

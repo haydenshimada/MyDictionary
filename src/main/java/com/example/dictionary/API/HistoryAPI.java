@@ -9,7 +9,7 @@ public class HistoryAPI {
 
     private static final String url = "src/main/resources/com/example/dictionary/History";// Điền đường dẫn đến file history.txt
 
-    public static void getHistoryData() {
+    public void getHistoryData() {
 
         history.clear();
 
@@ -47,7 +47,7 @@ public class HistoryAPI {
     /**
      * Hàm trả về List lịch sử mới.
      */
-    public static List<String> getHistorySet() {
+    public List<String> getHistorySet() {
         ArrayList<String> newHistory = new ArrayList<>(history.size());
         for (int i = history.size() - 1; i >= 0; i--) {
             newHistory.add(history.get(i));
@@ -68,4 +68,14 @@ public class HistoryAPI {
         }
     }
 
+    /*
+    public static void main(String[] args) {
+        HistoryAPI test1 = new HistoryAPI();
+        test1.getHistoryData();
+        List<String> test = test1.getHistorySet();
+        for (int i = 0; i < test.size(); i++) {
+            System.out.println(test.get(i));
+        }
+  }
+     */
 }
