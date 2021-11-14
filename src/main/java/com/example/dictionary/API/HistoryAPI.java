@@ -56,6 +56,14 @@ public class HistoryAPI {
     }
 
     /**
+     * Xoá 1 từ trong file lịch sử.
+     */
+    public static void deleteWord(String word) {
+        history.remove(word);
+        // cập nhật lại file
+    }
+
+    /**
      * Xoá toàn bộ từ trong file lịch sử.
      */
     public static void clearTheFile() {

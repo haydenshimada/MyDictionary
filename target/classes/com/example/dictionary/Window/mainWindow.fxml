@@ -16,14 +16,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="601.0" prefWidth="823.0" style="-fx-border-color: #3986EA#33ccff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HelloController">
+<BorderPane prefHeight="601.0" prefWidth="823.0" style="-fx-background-color: #100848;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HelloController">
    <top>
       <VBox prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <HBox alignment="CENTER" prefHeight="34.0" prefWidth="819.0">
             <children>
                <ImageView fitHeight="88.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../Image/dictionary.png" />
+                     <Image url="@../Image/yellowLogo.png" />
                   </image>
                </ImageView>
             </children>
@@ -48,7 +48,7 @@
                </graphic>
             </Button>
             <Pane prefHeight="27.0" prefWidth="130.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="apiButton" mnemonicParsing="false" onAction="#APIButtonClicked" prefHeight="58.0" prefWidth="150.0" stylesheets="@../Style/ButtonStyle.css" text="Dịch văn bản">
+            <Button fx:id="apiButton" mnemonicParsing="false" onAction="#APIButtonClicked" prefHeight="58.0" prefWidth="150.0" stylesheets="@../Style/ApiStyle.css" text="Dịch văn bản">
                <HBox.margin>
                   <Insets right="8.0" top="8.0" />
                </HBox.margin>
@@ -78,7 +78,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="488.0">
                      <children>
-                        <TextArea fx:id="meaningArea" editable="false" layoutX="144.0" layoutY="102.0" prefHeight="390.0" prefWidth="536.0" wrapText="true" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextArea fx:id="meaningArea" editable="false" layoutX="144.0" layoutY="102.0" prefHeight="390.0" prefWidth="536.0" style="-fx-background-color: #F7F7F7;" wrapText="true" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <Button fx:id="deleteButton" layoutX="478.0" layoutY="322.0" mnemonicParsing="false" onAction="#deleteButtonClicked" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 100;" stylesheets="@../Style/ButtonStyle.css" textAlignment="CENTER">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -105,6 +105,9 @@
                            </graphic>
                         </Button>
                      </children>
+                     <padding>
+                        <Insets right="8.0" />
+                     </padding>
                   </AnchorPane>
             </content>
           </Tab>
@@ -118,7 +121,10 @@
       <VBox prefHeight="459.0" prefWidth="263.0" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="96.0" prefWidth="263.0" />
-            <ListView fx:id="listView" onKeyReleased="#getWordList" onMouseClicked="#getMeaning" prefHeight="456.0" prefWidth="263.0" />
+            <ListView fx:id="listView" onMouseClicked="#getMeaning" prefHeight="461.0" prefWidth="263.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></ListView>
             <HBox prefHeight="100.0" prefWidth="263.0">
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" />
@@ -137,7 +143,7 @@
             </HBox>
          </children>
          <BorderPane.margin>
-            <Insets left="5.0" />
+            <Insets left="8.0" />
          </BorderPane.margin>
       </VBox>
    </left>

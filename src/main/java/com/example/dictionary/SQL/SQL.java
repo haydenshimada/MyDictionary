@@ -89,4 +89,14 @@ public class SQL {
         pst.setString(2, word);
         pst.executeUpdate();
     }
+
+    /** kiểm tra xem một từ có ở trong bảng không. */
+    public boolean contain(final String word) throws SQLException {
+        boolean ok = false;
+        final String findWord = "select word from tbl_edict where word = '" + word + "'";
+        pst = connect.prepareStatement(findWord);
+        ResultSet rs = pst.executeQuery();
+        ok = rs.next();
+        return ok;
+    }
 }

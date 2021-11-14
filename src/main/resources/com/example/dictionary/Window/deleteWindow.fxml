@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="325.0" style="-fx-border-color: #91dcff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.DeleteController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="112.0" prefWidth="326.0" style="-fx-background-color: #100848;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.DeleteController">
    <ImageView fitHeight="36.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../Image/dictionary.png" />
+         <Image url="@../Image/yellowLogo.png" />
       </image>
       <VBox.margin>
-         <Insets top="2.0" />
+         <Insets bottom="3.0" top="15.0" />
       </VBox.margin>
    </ImageView>
-   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="346.0" text="Bạn có chắc là muốn xóa từ này?">
+   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="346.0" text="Bạn có chắc là muốn xóa từ này?" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>

@@ -1,9 +1,9 @@
 .tab {
-    -fx-background-color: #33ccff;
+    -fx-background-color: #58c0e8;
 }
 
 .tab:selected {
-    -fx-background-color: #91dcff;
+    -fx-background-color: #48a0e0;
 }
 
 .tab-header-background {

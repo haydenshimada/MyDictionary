@@ -30,9 +30,7 @@ public class EditController implements Initializable {
         sql.updateWordDetail(HelloController.word, editArea.getText());
         HelloController.meaning = editArea.getText();
 
-        // close editWindow
-        Stage stage = (Stage) editButton.getScene().getWindow();
-        stage.close();
+        cancelButtonClicked();
     }
 
     @FXML

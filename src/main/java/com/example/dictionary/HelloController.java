@@ -67,7 +67,6 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         deleteButton.setVisible(false);
         speakButton.setVisible(false);
         editButton.setVisible(false);
@@ -153,7 +152,6 @@ public class HelloController implements Initializable {
 
         window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
-
 
         window.setTitle("Sửa từ");
         window.setScene(scene);

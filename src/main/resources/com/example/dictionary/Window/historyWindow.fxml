@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HistoryController">
+<AnchorPane prefHeight="601.0" prefWidth="823.0" style="-fx-background-color: #100848;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.HistoryController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -23,10 +23,10 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Pane prefHeight="84.0" prefWidth="232.0" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <Pane prefHeight="84.0" prefWidth="219.0" />
+                  <ImageView fitHeight="103.0" fitWidth="245.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/dictionary.png" />
+                        <Image url="@../Image/yellowLogo.png" />
                      </image>
                   </ImageView>
                </children>

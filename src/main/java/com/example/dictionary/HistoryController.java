@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,13 +37,15 @@ public class HistoryController implements Initializable {
     @FXML
     private TextArea meaning = new TextArea();
 
+    private List<String> wordList = new ArrayList<>();
+
     public HistoryController() throws SQLException {
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         history.getHistoryData();
-        List<String> wordList = history.getHistorySet();
+        wordList = history.getHistorySet();
         historyList.getItems().addAll(wordList);
 
         delete1WordButton.setVisible(false);
@@ -66,7 +69,16 @@ public class HistoryController implements Initializable {
 
     @FXML
     public void delete1Word() {
+        HistoryAPI.deleteWord(word);
 
+        speakButton.setVisible(false);
+        delete1WordButton.setVisible(false);
+
+        wordList.remove(word);
+        meaning.clear();
+
+        historyList.getItems().clear();
+        historyList.getItems().addAll(wordList);
     }
 
     @FXML
