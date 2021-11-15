@@ -28,13 +28,13 @@
                </ImageView>
             </children>
          </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="15.0" prefWidth="819.0">
+         <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="823.0">
             <VBox.margin>
                <Insets top="8.0" />
             </VBox.margin>
-            <TextField fx:id="inputWord" onKeyReleased="#getWordList" prefHeight="38.0" prefWidth="279.0" promptText="Nhập từ cần tra">
+            <TextField fx:id="inputWord" onKeyReleased="#getWordList" prefHeight="86.0" prefWidth="263.0" promptText="Nhập từ cần tra">
                <HBox.margin>
-                  <Insets left="8.0" right="5.0" top="10.0" />
+                  <Insets bottom="1.0" left="8.0" right="5.0" top="10.0" />
                </HBox.margin>
             </TextField>
             <Button mnemonicParsing="false" onAction="#searchButtonClicked" prefHeight="40.0" prefWidth="30.0" stylesheets="@../Style/ButtonStyle.css">

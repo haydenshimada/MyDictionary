@@ -13,18 +13,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="300.0" style="-fx-border-color: #91dcff; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.AddController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="300.0" style="-fx-background-color: #100848;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictionary.AddController">
    <ImageView fitHeight="35.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../Image/dictionary.png" />
+         <Image url="@../Image/yellowLogo.png" />
       </image>
+      <VBox.margin>
+         <Insets top="5.0" />
+      </VBox.margin>
    </ImageView>
    <TextField fx:id="insertWord" prefHeight="61.0" prefWidth="286.0" promptText="Nhập từ muốn thêm">
       <VBox.margin>
          <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
       </VBox.margin>
    </TextField>
-   <Label fx:id="existed" text="Từ này đã tồn tại" textFill="RED">
+   <Label fx:id="existed" text="Từ này đã tồn tại" textFill="#f04858">
       <font>
          <Font size="14.0" />
       </font>
@@ -34,11 +37,7 @@
          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
       </VBox.margin>
    </TextArea>
-   <AnchorPane>
-      <children>
-         <Label layoutX="45.0" layoutY="5.0" prefHeight="19.0" prefWidth="296.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      </children>
-   </AnchorPane>
+   <AnchorPane />
    <HBox prefHeight="32.0" prefWidth="296.0">
       <Pane prefHeight="30.0" prefWidth="78.0" HBox.hgrow="ALWAYS" />
       <Button mnemonicParsing="false" onAction="#saveAdd" prefHeight="26.0" prefWidth="54.0" stylesheets="@../Style/ButtonStyle.css" text="Thêm">
@@ -54,7 +53,7 @@
       </Button>
       <Pane prefHeight="70.0" prefWidth="66.0" HBox.hgrow="ALWAYS" />
       <VBox.margin>
-         <Insets top="5.0" />
+         <Insets bottom="5.0" top="5.0" />
       </VBox.margin>
    </HBox>
 </VBox>

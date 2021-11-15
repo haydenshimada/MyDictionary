@@ -42,7 +42,7 @@
          <bottom>
             <HBox alignment="CENTER" prefHeight="94.0" prefWidth="823.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#clearHistory" prefHeight="58.0" prefWidth="134.0" stylesheets="@../Style/ButtonStyle.css" text="Xóa lịch sử">
+                  <Button mnemonicParsing="false" onAction="#clearHistory" prefHeight="58.0" prefWidth="134.0" stylesheets="@../Style/ApiStyle.css" text="Xóa lịch sử">
                      <font>
                         <Font size="18.0" />
                      </font>
