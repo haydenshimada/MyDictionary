@@ -28,7 +28,6 @@ public class EditController implements Initializable {
     @FXML
     public void saveEdit() throws SQLException {
         sql.updateWordDetail(HelloController.word, editArea.getText());
-        HelloController.meaning = editArea.getText();
 
         cancelButtonClicked();
     }

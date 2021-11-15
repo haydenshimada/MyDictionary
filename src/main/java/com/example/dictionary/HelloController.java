@@ -78,8 +78,14 @@ public class HelloController implements Initializable {
         listView.getItems().clear();
 
         String input = inputWord.getText();
-        wordList = sql.pushToSuggestList(input);
-        listView.getItems().addAll(wordList);
+
+        // bỏ dấu cách thừa
+        input = input.trim().replaceAll("\\s+", " ");
+
+        if (!input.isEmpty()) {
+            wordList = sql.pushToSuggestList(input);
+            listView.getItems().addAll(wordList);
+        }
     }
 
     @FXML

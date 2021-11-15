@@ -58,7 +58,7 @@
             </Button>
             <Pane prefHeight="42.0" prefWidth="186.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="historyButton" layoutX="56.0" layoutY="7.0" mnemonicParsing="false" onAction="#HistoryButtonClicked" prefHeight="34.0" prefWidth="101.0" stylesheets="@../Style/ButtonStyle.css" text="Lịch sử">
+                  <Button fx:id="historyButton" contentDisplay="RIGHT" layoutX="56.0" layoutY="7.0" mnemonicParsing="false" onAction="#HistoryButtonClicked" prefHeight="34.0" prefWidth="101.0" stylesheets="@../Style/ButtonStyle.css" text="Lịch sử">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -128,7 +128,7 @@
             <HBox prefHeight="100.0" prefWidth="263.0">
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="34.0" prefWidth="165.0" stylesheets="@../Style/ButtonStyle.css" textAlignment="CENTER">
+                  <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="34.0" prefWidth="209.0" stylesheets="@../Style/ButtonStyle.css" text="Thêm từ" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../Image/add.png" />

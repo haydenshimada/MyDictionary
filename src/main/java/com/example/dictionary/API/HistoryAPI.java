@@ -56,11 +56,25 @@ public class HistoryAPI {
     }
 
     /**
-     * Xoá 1 từ trong file lịch sử.
+     * Xoá 1 từ trong file.
      */
     public static void deleteWord(String word) {
-        history.remove(word);
-        // cập nhật lại file
+        history.remove(word); // Xoá 1 từ trong List history
+
+        clearTheFile();//Xoá dữ liệu trong file
+
+        // Đọc lại từ List History vào file. */
+        try (FileWriter fileWriter = new FileWriter(url, true); // lưu từ cuối lên
+             BufferedWriter bufferedwriter = new BufferedWriter(fileWriter)) {
+            for (String s : history) {
+                bufferedwriter.write(s); //Ghi vào file
+                bufferedwriter.newLine(); //Xuống dòng
+                bufferedwriter.flush(); // Chỉ thẳng vào fileWrite.
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
