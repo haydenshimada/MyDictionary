@@ -9,7 +9,7 @@ public class HistoryAPI {
 
     private static final String url = "src/main/resources/com/example/dictionary/History";// Điền đường dẫn đến file history.txt
 
-    public void getHistoryData() {
+    public static void getHistoryData() {
 
         history.clear();
 
@@ -25,23 +25,47 @@ public class HistoryAPI {
                 line = bufferedReader.readLine();
             }
         }
-        /* Xử lý exception khi có lỗi liên quan đến file input/output. */
-        catch (IOException e) {
+        /* Xử lý exception khi có lỗi liên quan đến file input/output. */ catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void insertWordToHistory(String word) {
-        /* Đọc từ mới vào file. */
+
         try (FileWriter fileWriter = new FileWriter(url, true); // lưu từ cuối lên
              BufferedWriter bufferedwriter = new BufferedWriter(fileWriter)) {
             bufferedwriter.write(word); //Ghi vào chuỗi word
-
             bufferedwriter.newLine(); //Xuống dòng
             bufferedwriter.flush(); // Chi thẳng vào fileWrite.
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Không lặp từ trong file text
+        getHistoryData(); //Lưu lại từ file và list
+
+        //Xử lý từ lặp
+        for (String element : history) {
+            //Nếu như từ đấy chưa có trong list thì thêm vào
+            if (!history.contains(element)) {
+                history.add(element);
+            }
+        }
+
+        clearTheFile(); //Xoá dữ liệu trong file
+
+        // Đọc lại từ List History vào file. */
+        try (FileWriter fileWriter = new FileWriter(url, true); // lưu từ cuối lên
+             BufferedWriter bufferedwriter = new BufferedWriter(fileWriter)) {
+            for (String s : history) {
+                bufferedwriter.write(s); //Ghi vào file
+                bufferedwriter.newLine(); //Xuống dòng
+                bufferedwriter.flush(); // Chỉ thẳng vào fileWrite.
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -74,7 +98,6 @@ public class HistoryAPI {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**

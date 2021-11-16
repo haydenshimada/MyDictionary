@@ -44,7 +44,7 @@ public class HistoryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        history.getHistoryData();
+        HistoryAPI.getHistoryData();
         wordList = history.getHistorySet();
         historyList.getItems().addAll(wordList);
 
