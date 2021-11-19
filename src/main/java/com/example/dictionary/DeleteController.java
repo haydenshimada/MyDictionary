@@ -1,5 +1,6 @@
 package com.example.dictionary;
 
+import com.example.dictionary.API.HistoryAPI;
 import com.example.dictionary.SQL.SQL;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ public class DeleteController {
     @FXML
     public void saveDelete() throws SQLException {
         sql.deleteWord(HelloController.word);
+        HistoryAPI.deleteWord(HelloController.word);
 
         cancelButtonClicked();
     }
