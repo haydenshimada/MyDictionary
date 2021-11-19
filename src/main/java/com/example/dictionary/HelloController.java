@@ -76,6 +76,7 @@ public class HelloController implements Initializable {
     public void getWordList() throws SQLException {
         wordList.clear();
         listView.getItems().clear();
+        meaningArea.clear();
 
         String input = inputWord.getText();
 
